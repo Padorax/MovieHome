@@ -1,3 +1,6 @@
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
 var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
@@ -50,6 +53,4 @@ app.use("/", indexRoutes);
 app.use("/movies", movieRoutes);
 app.use("/movies/:id/comments", commentRoutes);
 
-app.listen(3000, function() {
-    console.log("Server has started...");
-});
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
